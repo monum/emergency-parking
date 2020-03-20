@@ -147,7 +147,7 @@ function initMap() {
   map.setMapTypeId('styled_map');
   let markerCluster = new MarkerClusterer(map, [], {
       imagePath: './icons/m',
-      maxZoom: 15
+      maxZoom: 14
   });
 
   let info = new google.maps.InfoWindow();
