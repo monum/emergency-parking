@@ -139,8 +139,8 @@ function initMap() {
   );
 
   let map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 42.3331338, lng: -71.1137929 },
-    zoom: 12,
+    center: {lat: 42.3574, lng: -71.0629 },
+    zoom: 15,
     streetViewControl: false
   });
   map.mapTypes.set('styled_map', styledMapType);
