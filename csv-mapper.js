@@ -157,7 +157,7 @@ function initMap() {
   // });
 
   csvs.forEach(csv => {
-    fetch("/csvs/" + csv + ".csv").then(res => res.text()).then((txt) => {
+    fetch("./csvs/" + csv + ".csv").then(res => res.text()).then((txt) => {
       let rows = Papa.parse(txt, {header:true}),
           locationField = false;
       rows.data.forEach(row => {
