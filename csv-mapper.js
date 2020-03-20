@@ -177,10 +177,28 @@ function initMap() {
             delete row.location;
         }
         if (row.latitude * 1 && row.longitude * 1) {
+
+          let icon = null;
+          if (csv.includes("parking")) {
+            icon = {
+              url: './parking.png',
+              size: new google.maps.Size(30, 35),
+              origin: new google.maps.Point(0, 0),
+              anchor: new google.maps.Point(15, 30)
+            };
+          } else if (csv.includes("medfacil")) {
+            icon = {
+              url: './hospital.png',
+              size: new google.maps.Size(30, 35),
+              origin: new google.maps.Point(0, 0),
+              anchor: new google.maps.Point(15, 30)
+            };
+          }
           let marker = new google.maps.Marker({
             map: map,
             clickable: true,
-            position: new google.maps.LatLng(row.latitude * 1, row.longitude * 1)
+            position: new google.maps.LatLng(row.latitude * 1, row.longitude * 1),
+            icon: icon
           });
           let showMarker = (matches) => {
             let table = '<table class="table"><thead><tr>';
