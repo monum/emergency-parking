@@ -3,7 +3,8 @@ if ((csvs).length > 1) {
   csvs = csvs[1].split("&")[0].split(",");
   console.log(csvs);
 } else {
-  alert("add csv= to the URL for file names")
+  // alert("add csv= to the URL for file names")
+  csvs = ["medfacil","parking_with_geo"];
 }
 
 function initMap() {
