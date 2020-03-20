@@ -140,7 +140,7 @@ function initMap() {
 
   let map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 42.3589, lng: -71.0629 },
-    zoom: 14,
+    zoom: 15,
     streetViewControl: false
   });
   map.mapTypes.set('styled_map', styledMapType);
