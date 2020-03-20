@@ -145,6 +145,10 @@ function initMap() {
   });
   map.mapTypes.set('styled_map', styledMapType);
   map.setMapTypeId('styled_map');
+  let markerCluster = new MarkerClusterer(map, [], {
+      imagePath: './icons/m',
+      maxZoom: 15
+  });
 
   let info = new google.maps.InfoWindow();
   // map.data.setStyle((feature) => {
@@ -181,17 +185,17 @@ function initMap() {
           let icon = null;
           if (csv.includes("parking")) {
             icon = {
-              url: './parking.png',
-              size: new google.maps.Size(30, 35),
+              url: './icons/parking.png',
+              size: new google.maps.Size(30 * 0.7, 35 * 0.7),
               origin: new google.maps.Point(0, 0),
-              anchor: new google.maps.Point(15, 30)
+              anchor: new google.maps.Point(15 * 0.7, 30 * 0.7)
             };
           } else if (csv.includes("medfacil")) {
             icon = {
-              url: './hospital.png',
-              size: new google.maps.Size(30, 35),
+              url: './icons/hospital.png',
+              size: new google.maps.Size(30 * 0.7, 35 * 0.7),
               origin: new google.maps.Point(0, 0),
-              anchor: new google.maps.Point(15, 30)
+              anchor: new google.maps.Point(15 * 0.7, 30 * 0.7)
             };
           }
           let marker = new google.maps.Marker({
@@ -200,6 +204,7 @@ function initMap() {
             position: new google.maps.LatLng(row.latitude * 1, row.longitude * 1),
             icon: icon
           });
+          markerCluster.addMarker(marker);
           let showMarker = (matches) => {
             let table = '<table class="table"><thead><tr>';
             table += Object.keys(matches[0]).map(col => {
